@@ -8,9 +8,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <TodoFeature></TodoFeature>
-         */}
-        <AlbumFeature></AlbumFeature>
+        <TodoFeature />
+        {/* <AlbumFeature /> */}
       </header>
     </div>
   );
