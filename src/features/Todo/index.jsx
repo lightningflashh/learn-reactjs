@@ -13,6 +13,17 @@ const TodoFeature = () => {
     ];
 
     const [todoList, setTodoList] = useState(initTodoList);
+    const [filteredStatus, setFilteredStatus] = useState('all');
+
+    const handleShowAllClick = () => {
+        setFilteredStatus('all');
+    };
+    const handleShowCompletedClick = () => {
+        setFilteredStatus('completed');
+    };
+    const handleShowNewClick = () => {
+        setFilteredStatus('new');
+    };
 
     const handleTodoClick = (todo, idx) => {
         const cloneTodoList = [...todoList]; // DO NOT MUTATE STATE
@@ -23,10 +34,19 @@ const TodoFeature = () => {
         setTodoList(cloneTodoList);
     };
 
+    const renderTodoList = todoList.filter(
+        (todo) => filteredStatus === 'all' || filteredStatus === todo.status
+    );
+
     return (
         <div>
             <h3>To do List</h3>
-            <TodoList todoList={todoList} onTodoClick={handleTodoClick} />
+            <TodoList todoList={renderTodoList} onTodoClick={handleTodoClick} />
+            <div>
+                <button onClick={handleShowAllClick}>Show All</button>
+                <button onClick={handleShowCompletedClick}>Show Completed</button>
+                <button onClick={handleShowNewClick}>Show New</button>
+            </div>
         </div>
     );
 };
