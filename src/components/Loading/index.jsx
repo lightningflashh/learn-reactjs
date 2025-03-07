@@ -3,17 +3,9 @@ import PropTypes from 'prop-types';
 import './styles.css';
 
 const Loading = () => {
-    return (
-        <div>
-            Loading...
-        </div>
-    );
+  return <div>Loading...</div>;
 };
 
-
-Loading.propTypes = {
-
-};
-
+Loading.propTypes = {};
 
 export default Loading;
